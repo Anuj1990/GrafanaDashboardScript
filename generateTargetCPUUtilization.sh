@@ -1,6 +1,6 @@
 
 dashboardname=ec2-cpu-utilization-across-all-accounts
-curl -H "Authorization: Bearer eyJrIjoicnJhdmNoYTZXVnRYT1hyUDJnSkdEdUpmMEpUZXhXYzEiLCJuIjoiR3JhZmFuYUNMSSIsImlkIjoxfQ==" http://192.168.0.102:3000/api/dashboards/db/$dashboardname > Grafana.json
+curl -H "Authorization: Bearer eyJrIjoicnJhdmNoYTZXVnRYT1hyUDJnSkdEdUpmMEpUZXhXYzEiLCJuIjoiR3JhZmFuYUNMSSIsImlkIjoxfQ==" http://192.168.0.105:3000/api/dashboards/db/$dashboardname > Grafana.json
 
 cat instances | while read output;
 do	
@@ -16,4 +16,4 @@ done
 
 rm jsonfile
 
-curl -XPOST -H "Authorization: Bearer eyJrIjoicnJhdmNoYTZXVnRYT1hyUDJnSkdEdUpmMEpUZXhXYzEiLCJuIjoiR3JhZmFuYUNMSSIsImlkIjoxfQ==" -H "Content-Type: application/json" http://192.168.0.102:3000/api/dashboards/db -d @Grafana.json
+curl -XPOST -H "Authorization: Bearer eyJrIjoicnJhdmNoYTZXVnRYT1hyUDJnSkdEdUpmMEpUZXhXYzEiLCJuIjoiR3JhZmFuYUNMSSIsImlkIjoxfQ==" -H "Content-Type: application/json" http://192.168.0.105:3000/api/dashboards/db -d @Grafana.json
